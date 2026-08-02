@@ -11,7 +11,7 @@ source.include_exts = py,png,jpg,kv,atlas,otf,xml,wav
 
 version = 0.1
 #依赖库,后二为打包需要 The last two are needed for packaging
-requirements = python3,kivy,kivymd,pyjnius,libiconv,libffi
+requirements = python3,kivy,kivymd,libiconv,libffi
 icon.filename = icon.png
 #presplash.filename = presplash.png
 fullscreen = 0
@@ -21,7 +21,7 @@ orientation = portrait
 #这些不要改 Don't change these
 android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
-android.allow_api_min = 21
+#android.allow_api_min = 21
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
@@ -30,9 +30,9 @@ android.gradle_download = https://services.gradle.org/distributions/gradle-7.6.4
 android.gradle_plugin = 7.4.2
 android.sdk = 33
 android.ndk_api = 21
-p4a.gradle_dependencies = gradle:7.6.4
+#p4a.gradle_dependencies = gradle:7.6.4
 p4a.bootstrap = sdl2
-p4a.gradle_options = -Dorg.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64
+#p4a.gradle_options = -Dorg.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64
 #打包需要网络权限 Network permission is required for packaging
 android.permissions = INTERNET
 
