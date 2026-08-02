@@ -1,27 +1,26 @@
 [app]
-#标题允许中文 title language is not limited
+#标题允许中文
 title = MAGILM
 package.name = magilm
 package.domain = io.github.qinmingming16
 
-#工作目录 working directory
+#工作目录
 source.dir = .
-#需要打包的文件类型 file types to be packed
+#需要打包的文件类型
 source.include_exts = py,png,jpg,kv,atlas,otf,xml,wav
 
 version = 0.1
-#依赖库,后二为打包需要 The last two are needed for packaging
-requirements = python3,kivy,kivymd,libiconv,libffi
+#依赖库
+requirements = python3,kivy,kivymd
+
 icon.filename = icon.png
 #presplash.filename = presplash.png
 fullscreen = 0
 orientation = portrait
 
-
-#这些不要改 Don't change these
+#不要改动
 android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
-#android.allow_api_min = 21
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
@@ -30,22 +29,16 @@ android.gradle_download = https://services.gradle.org/distributions/gradle-7.6.4
 android.gradle_plugin = 7.4.2
 android.sdk = 33
 android.ndk_api = 21
-#p4a.gradle_dependencies = gradle:7.6.4
 p4a.bootstrap = sdl2
-#p4a.gradle_options = -Dorg.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64
-#打包需要网络权限 Network permission is required for packaging
+
+#打包需要网络权限
 android.permissions = INTERNET
 
-#以下为release模式需要 Following is required for release mode
-
-#强制构建APK而不是AAB,但没用 Why does it build .aab instead of .apk?
-#android.aab = False
-
-#签名配置 signature configuration
-#android.keystore = /home/runner/work/RepositoryName/AndAgain/DomainName.PackageName.keystore
-#android.keystore_storepass = android
-#android.keystore_keypass = android
-#android.keystore_alias = DomainName.PackageName
+#以下为release模式需要，debug无需启用
+#android.keystore = 
+#android.keystore_storepass = 
+#android.keystore_keypass = 
+#android.keystore_alias = 
 
 [buildozer]
 log_level = 2
