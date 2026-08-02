@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MAGILM</string>
+    <string name="private_version">860bc40683d9f7fc0ab7f56d024b88808281c569</string>
+    <string name="presplash_color">#000000</string>
+    <string name="urlScheme">kivy</string>
+    <string name="accessibility_service_desc">无障碍手势与键盘服务：用于执行屏幕点击与监听按键输入</string>
+</resources>
