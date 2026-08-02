@@ -11,7 +11,7 @@ source.include_exts = py,png,jpg,kv,atlas,otf,xml,wav
 
 version = 0.1
 #依赖库
-requirements = python3==3.11.5,hostpython==3.11.5,kivy==2.3.1,kivymd==1.1.1
+requirements = python3==3.11.5,hostpython3==3.11.5,kivy==2.3.1,kivymd==1.1.1
 
 source.exclude_exts = spec
 source.exclude_dirs = venv,bin
