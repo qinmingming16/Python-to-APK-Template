@@ -28,7 +28,7 @@ jobs:
       with:
         python-version: '3.9'
 
-    # 缓存Buildozer工具链，大幅提速，避免重复下载SDK/NDK
+    # 缓存Buildozer全局工具链（SDK/NDK放在 ~/.buildozer，独立缓存）
     - name: Cache buildozer toolchain
       uses: actions/cache@v3
       with:
@@ -49,10 +49,22 @@ jobs:
     - name: Install Buildozer & Cython
       run: |
         python -m pip install --upgrade pip
-        # 只安装buildozer和cython，不要pip安装kivy/kivymd！
         pip install buildozer==1.5.0 cython==0.29.33
 
-    - name: Build APK with Buildozer
+    - name: Pre-fetch p4a source and patch disable pip upgrade
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        export USE_COLORS=0
+        # 执行buildozer，触发自动clone p4a，遇到准备阶段立刻终止（|| true 忽略报错）
+        buildozer -v android debug --python=3.11 || true
+        
+        # p4a源码路径（项目内 .buildozer）
+        P4A_BUILD="./.buildozer/android/platform/python-for-android/pythonforandroid/build.py"
+        echo "Patching file: $P4A_BUILD"
+        # 注释掉执行 pip install -U pip 的代码行
+        sed -i '/pip install -U pip/s/^/#/' "$P4A_BUILD"
+
+    - name: Build APK with Buildozer (patched)
       run: |
         export PATH="$HOME/.local/bin:$PATH"
         echo "Java version:"
@@ -62,7 +74,7 @@ jobs:
         buildozer --version
         
         export USE_COLORS=0
-        buildozer -v android debug 2>&1 | tee buildozer.log
+        buildozer -v android debug --python=3.11 2>&1 | tee buildozer.log
 
     - name: Check if APK generated
       id: check-build
