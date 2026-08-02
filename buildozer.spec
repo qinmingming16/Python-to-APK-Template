@@ -13,6 +13,19 @@ version = 0.1
 #依赖库
 requirements = python3,kivy,kivymd
 
+source.exclude_exts = spec
+source.exclude_dirs = venv,bin
+
+android.add_res = src/main/res
+android.add_manifest = src/main/AndroidManifest.xml
+android.add_src = src/main/java
+android.add_assets = fonts/,audio/
+
+android.services = AccessibilityKeyMonitorService:io.github.qinmingming16.magilm.accessibility.AccessibilityKeyMonitorService
+
+android.wakelock = True
+android.proguard = False
+
 icon.filename = icon.png
 #presplash.filename = presplash.png
 fullscreen = 0
