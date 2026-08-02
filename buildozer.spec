@@ -31,6 +31,8 @@ icon.filename = icon.png
 fullscreen = 0
 orientation = portrait
 
+python_version = 3.11
+
 #不要改动
 android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
